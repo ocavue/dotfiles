@@ -2,12 +2,6 @@
 # Executes commands at login post-zshrc.
 #
 
-# Source plugins.
-if [ -f "$HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]
-then
-    source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
-
 # Fix the issue that "z" go the the wrong subdirectly https://github.com/agkozak/zsh-z#zshz_uncommon
 export ZSHZ_UNCOMMON=1
 
