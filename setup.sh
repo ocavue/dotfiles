@@ -3,13 +3,16 @@
 set -ex
 
 # debug log
-echo "Running setup.sh $(whoami) $(date)" > $HOME/setup.log
+echo "Running setup.sh $(whoami) $(date)" > $HOME/.dotfiles.setup.log
 
 # switch the default shell to `zsh`
 sudo chsh -s /bin/zsh
 
-# install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# install oh-my-zsh (GitHub Codespaces already has oh-my-zsh installed)
+if [ ! -d "$HOME/.oh-my-zsh" ]
+then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 # install z
 git clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z
