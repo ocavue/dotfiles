@@ -3,7 +3,7 @@
 set -ex
 
 # debug log
-echo "Running setup.sh $(whoami) $(date)" > /tmp/setup.log
+echo "Running setup.sh $(whoami) $(date)" > $HOME/setup.log
 
 # switch the default shell to `zsh`
 chsh -s /bin/zsh
