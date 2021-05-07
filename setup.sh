@@ -19,8 +19,8 @@ then
 fi
 
 function git_clone {
-    $remote=$0
-    $local=$1
+    remote=$0
+    local=$1
     if [ ! -d "$local" ]
     then
         git clone --depth=1 $remote $local
