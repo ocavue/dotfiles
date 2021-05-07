@@ -6,7 +6,7 @@ set -ex
 echo "Running setup.sh $(whoami) $(date)" > $HOME/setup.log
 
 # switch the default shell to `zsh`
-chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
