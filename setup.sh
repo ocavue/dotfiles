@@ -41,7 +41,6 @@ git_clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosu
 # curl -L https://iterm2.com/shell_integration/zsh -o $HOME/.iterm2_shell_integration.zsh
 
 # setup zsh config
+ln -sf $DOTFILES_PATH/zsh/.zsh $HOME/.zsh
 ln -sf $DOTFILES_PATH/zsh/.zlogin $HOME/.zlogin
-
-# setup theme
 ln -sf $DOTFILES_PATH/zsh/.p10k.zsh $HOME/.p10k.zsh
