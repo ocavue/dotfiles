@@ -121,7 +121,7 @@ export ZSHZ_UNCOMMON=1
 # Set Go environment variables.
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:$GOBIN"
+export PATH="$PATH:/opt/homebrew/bin:$GOBIN" # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
 
 # Do not download bundled Chromium during installation step of Puppeteer
 # https://github.com/puppeteer/puppeteer/blob/v0.10.2/docs/api.md#environment-variables
@@ -150,3 +150,8 @@ function setproxy {
     export all_proxy=http://127.0.0.1:1081/
     export no_proxy=localhost,0.0.0.0,127.0.0.1
 }
+
+function timestamp_now {
+	echo 'console.log(Number(new Date()))' | node
+}
+
