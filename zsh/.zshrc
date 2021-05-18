@@ -128,6 +128,9 @@ do
   [[ -d "$dir" ]] && export PATH="$PATH:$dir"
 done
 
+# Stop Next.js from collecting my information: https://nextjs.org/telemetry
+export NEXT_TELEMETRY_DISABLED=1
+
 # Do not download bundled Chromium during installation step of Puppeteer
 # https://github.com/puppeteer/puppeteer/blob/v0.10.2/docs/api.md#environment-variables
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="yes"
