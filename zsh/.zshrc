@@ -121,7 +121,12 @@ export ZSHZ_UNCOMMON=1
 # Set Go environment variables.
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-export PATH="$PATH:/opt/homebrew/bin:$GOBIN" # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
+
+# /opt/homebrew/bin is for homebrew on Apple Silicon Mac
+for dir in "$GOBIN" "/Users/ocavue/Library/Python/3.8/bin" "/opt/homebrew/bin"
+do
+  [[ -d "$dir" ]] && export PATH="$PATH:$dir"
+done
 
 # Do not download bundled Chromium during installation step of Puppeteer
 # https://github.com/puppeteer/puppeteer/blob/v0.10.2/docs/api.md#environment-variables
