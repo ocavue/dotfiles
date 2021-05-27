@@ -158,7 +158,3 @@ function setproxy {
     export all_proxy=http://127.0.0.1:1081/
     export no_proxy=localhost,0.0.0.0,127.0.0.1
 }
-
-function timestamp_now {
-	echo 'console.log(Number(new Date()))' | node
-}
