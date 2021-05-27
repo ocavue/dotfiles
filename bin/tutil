@@ -31,7 +31,11 @@ def main():
     else:
         timestamp = datetime.now().timestamp()
         for (scale, timestamp_unit) in timestamp_scales:
-            print("timestamp {:<13} {}".format(timestamp_unit + ':', int(timestamp * scale)))
+            print(
+                "timestamp {:<13} {}".format(
+                    timestamp_unit + ":", int(timestamp * scale)
+                )
+            )
 
 
 if __name__ == "__main__":
