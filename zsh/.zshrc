@@ -123,7 +123,7 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
-for dir in "$GOBIN" "/Users/ocavue/Library/Python/3.8/bin" "/opt/homebrew/bin"
+for dir in "/opt/homebrew/bin" "$GOBIN" "$HOME/Library/Python/3.8/bin" "$HOME/code/github/dotfiles/bin"
 do
   [[ -d "$dir" ]] && export PATH="$PATH:$dir"
 done
@@ -162,4 +162,3 @@ function setproxy {
 function timestamp_now {
 	echo 'console.log(Number(new Date()))' | node
 }
-
