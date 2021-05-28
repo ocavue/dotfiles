@@ -158,3 +158,19 @@ function setproxy {
     export all_proxy=http://127.0.0.1:1081/
     export no_proxy=localhost,0.0.0.0,127.0.0.1
 }
+
+# Stop Powerlevel10k from printing warning
+typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+
+function print_prompt {
+    # more color: https://stackoverflow.com/a/28938235
+    mkdir -p /tmp/zsh_prompt/
+    zsh_prompt_file="/tmp/zsh_prompt/$(date +"%Y-%m-%d_%H")"
+    if [[ ! -f "$zsh_prompt_file" ]]; then
+        echo '\033[1;33m''(>_< ) 今天也是元气满满的一天！''\033[0m'
+        touch $zsh_prompt_file
+    fi
+    unset zsh_prompt_file
+}
+
+print_prompt
