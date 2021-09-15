@@ -16,7 +16,7 @@ sudo chsh -s /bin/zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]
 then
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/ohmyzsh_install.sh
-    sh -c /tmp/ohmyzsh_install.sh
+    sh /tmp/ohmyzsh_install.sh
 fi
 
 function git_clone {
