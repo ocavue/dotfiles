@@ -15,7 +15,8 @@ sudo chsh -s /bin/zsh
 # install oh-my-zsh (GitHub Codespaces already has oh-my-zsh installed)
 if [ ! -d "$HOME/.oh-my-zsh" ]
 then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/ohmyzsh_install.sh
+    sh -c /tmp/ohmyzsh_install.sh
 fi
 
 function git_clone {
