@@ -142,6 +142,11 @@ then
     export PLAYWRIGHT_CHROME_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 fi
 
+if [ -e "/opt/homebrew/opt/node@16/bin" ]
+then
+    export PATH="$PATH:/opt/homebrew/opt/node@16/bin"
+fi
+
 # Fix the issue of duplicated command
 # https://github.com/sindresorhus/pure/issues/300#issuecomment-328744993
 export LANG=en_US.UTF-8

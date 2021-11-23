@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+chsum1=""
+watch_dir="$1"
+shift
+
+while [[ true ]]
+do
+    chsum2=$(find "$watch_dir" -type f -exec md5 {} \;)
+    if [[ $chsum1 != $chsum2 ]] ; then
+        echo "[onchange] $(date +"%Y-%m-%dT%H:%M:%S%z") running"
+        $@
+        chsum1=$chsum2
+    fi
+    sleep 2
+done
