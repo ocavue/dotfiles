@@ -110,6 +110,8 @@ source $ZSH/oh-my-zsh.sh
 
 # Fix the issue that "z" go the the wrong subdirectly https://github.com/agkozak/zsh-z#zshz_uncommon
 export ZSHZ_UNCOMMON=1
+# Displays the new path name when changing directories
+export ZSHZ_ECHO=1
 
 # # Setup iterm2 Shell Integration
 # # document: https://iterm2.com/documentation-shell-integration.html
@@ -120,12 +122,23 @@ export ZSHZ_UNCOMMON=1
 
 # Set Go environment variables.
 export GOPATH="$HOME/go"
-export GOBIN="$GOPATH/bin"
 
+# Set Ruby environment variables.
+export GEM_HOME=$HOME/.gem
+
+# Set PATH
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
-for dir in "/opt/homebrew/bin" "$GOBIN" "$HOME/Library/Python/3.8/bin" "$HOME/code/github/dotfiles/bin"
+for dir in \
+  "/opt/homebrew/bin" \
+  "/opt/homebrew/opt/node@16/bin" \
+  "/opt/homebrew/opt/openjdk/bin" \
+  "/opt/homebrew/opt/python@3.10/bin/" \
+  "$GEM_HOME/bin" \
+  "$GOPATH/bin" \
+  "$HOME/Library/Python/3.10/bin" \
+  "$HOME/code/github/dotfiles/bin"
 do
-  [[ -d "$dir" ]] && export PATH="$PATH:$dir"
+  [[ -d "$dir" ]] && export PATH="$dir:$PATH"
 done
 
 # Stop Next.js from collecting my information: https://nextjs.org/telemetry
@@ -135,16 +148,12 @@ export NEXT_TELEMETRY_DISABLED=1
 # https://github.com/puppeteer/puppeteer/blob/v0.10.2/docs/api.md#environment-variables
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="yes"
 export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="yes"
+export CYPRESS_INSTALL_BINARY="0"
 
 if [ -e "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]
 then
     export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     export PLAYWRIGHT_CHROME_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-fi
-
-if [ -e "/opt/homebrew/opt/node@16/bin" ]
-then
-    export PATH="$PATH:/opt/homebrew/opt/node@16/bin"
 fi
 
 # Fix the issue of duplicated command
