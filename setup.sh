@@ -43,7 +43,6 @@ git_clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.
 
 # setup zsh config
 ln -sf $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc
-ln -sf $DOTFILES_PATH/zsh/.zlogin $HOME/.zlogin
 ln -sf $DOTFILES_PATH/zsh/.p10k.zsh $HOME/.p10k.zsh
 
 echo "Finished setup.sh $(whoami) $(date)" > $HOME/.dotfiles.setup.log
