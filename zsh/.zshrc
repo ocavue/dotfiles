@@ -141,6 +141,7 @@ for dir in \
   "$GOPATH/bin" \
   "$HOME/Library/Python/3.10/bin" \
   "$HOME/code/github/dotfiles/bin" \
+  "$HOME/code/github/prosemirror/bin" \
   "$PNPM_HOME"
 do
   [[ -d "$dir" ]] && export PATH="$dir:$PATH"
