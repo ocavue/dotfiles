@@ -10,7 +10,7 @@ cd $(dirname $0)
 DOTFILES_PATH=$PWD
 
 # switch the default shell to `zsh`
-sudo chsh -s /bin/zsh
+# sudo chsh -s /bin/zsh
 
 # install oh-my-zsh (GitHub Codespaces already has oh-my-zsh installed)
 if [ ! -d "$HOME/.oh-my-zsh" ]
