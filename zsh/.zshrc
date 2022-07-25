@@ -112,6 +112,7 @@ source $ZSH/oh-my-zsh.sh
 export ZSHZ_UNCOMMON=1
 # Displays the new path name when changing directories
 export ZSHZ_ECHO=1
+export ZSHZ_TRAILING_SLASH=1
 
 # # Setup iterm2 Shell Integration
 # # document: https://iterm2.com/documentation-shell-integration.html
@@ -126,6 +127,9 @@ export GOPATH="$HOME/go"
 # Set Ruby environment variables.
 export GEM_HOME=$HOME/.gem
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+
 # Set PATH
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
 for dir in \
@@ -136,7 +140,8 @@ for dir in \
   "$GEM_HOME/bin" \
   "$GOPATH/bin" \
   "$HOME/Library/Python/3.10/bin" \
-  "$HOME/code/github/dotfiles/bin"
+  "$HOME/code/github/dotfiles/bin" \
+  "$PNPM_HOME"
 do
   [[ -d "$dir" ]] && export PATH="$dir:$PATH"
 done
@@ -161,6 +166,14 @@ fi
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+
+# alias for cnpm
+alias cnpm="npm --registry=https://registry.npmmirror.com \
+  --cache=$HOME/.npm/.cache/cnpm \
+  --disturl=https://npmmirror.com/mirrors/node \
+  --userconfig=$HOME/.cnpmrc"
+
+alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
 
 function setproxy {
     export HTTPS_PROXY=http://127.0.0.1:1081/
