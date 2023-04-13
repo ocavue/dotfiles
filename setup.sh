@@ -37,7 +37,7 @@ git_clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.
 # install ni
 if [ -x "$(command -v npm)" ]; then 
     # npm exists
-    if ! [ -x "$(command -v git)" ]; then
+    if ! [ -x "$(command -v ni)" ]; then
         # ni not exists
         npm install -g @antfu/ni
     fi
