@@ -3,14 +3,11 @@
 set -ex
 
 # debug log
-echo "Running setup.sh $(whoami) $(date)" > $HOME/.dotfiles.setup.log
+echo "Running dotfiles/setup.sh $(whoami) $(date)" >> $HOME/.dotfiles.setup.log
 
 # get absolute path of dotfiles
 cd $(dirname $0)
 DOTFILES_PATH=$PWD
-
-# switch the default shell to `zsh`
-# sudo chsh -s /bin/zsh
 
 # install oh-my-zsh (GitHub Codespaces already has oh-my-zsh installed)
 if [ ! -d "$HOME/.oh-my-zsh" ]
@@ -36,6 +33,15 @@ git_clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-m
 
 # install zsh-autosuggestions
 git_clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# install ni
+if [ -x "$(command -v npm)" ]; then 
+    # npm exists
+    if ! [ -x "$(command -v git)" ]; then
+        # ni not exists
+        npm install -g @antfu/ni
+    fi
+fi
 
 # install iTerm2 Shell Integration
 # document: https://iterm2.com/documentation-shell-integration.html
