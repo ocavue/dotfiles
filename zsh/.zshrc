@@ -135,6 +135,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 for dir in \
   "/opt/homebrew/bin" \
   "/opt/homebrew/opt/node@16/bin" \
+  "/opt/homebrew/opt/node@18/bin" \
   "/opt/homebrew/opt/openjdk/bin" \
   "/opt/homebrew/opt/python@3.10/bin/" \
   "$GEM_HOME/bin" \
@@ -185,6 +186,13 @@ function setproxy {
     export http_proxy=http://127.0.0.1:1081/
     export all_proxy=http://127.0.0.1:1081/
     export no_proxy=localhost,0.0.0.0,127.0.0.1
+}
+
+function rmcache {
+  rm -rf ./.next
+  rm -rf ./node_modules/.vitest
+  rm -rf ./node_modules/.vite
+  rm -rf ./node_modules/.cache
 }
 
 # Stop Powerlevel10k from printing warning
