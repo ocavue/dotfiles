@@ -157,6 +157,10 @@ export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD="yes"
 export PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD="yes"
 export CYPRESS_INSTALL_BINARY="0"
 
+# Do not download asset during installation step of node-re2, to speed up the installation
+# https://github.com/uhop/node-re2/issues/116#issuecomment-958187621
+export DEVELOPMENT_SKIP_GETTING_ASSET="yes"
+
 if [ -e "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]
 then
     export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
