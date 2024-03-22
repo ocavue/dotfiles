@@ -137,7 +137,8 @@ for dir in \
   "/opt/homebrew/opt/node@16/bin" \
   "/opt/homebrew/opt/node@18/bin" \
   "/opt/homebrew/opt/openjdk/bin" \
-  "/opt/homebrew/opt/python@3.10/bin/" \
+  "/opt/homebrew/opt/python@3.10/bin" \
+  "/opt/homebrew/opt/ruby/bin" \
   "$GEM_HOME/bin" \
   "$GOPATH/bin" \
   "$HOME/Library/Python/3.10/bin" \
@@ -218,3 +219,10 @@ function print_prompt {
 }
 
 print_prompt
+
+# bun completions
+[ -s "/Users/ocavue/.bun/_bun" ] && source "/Users/ocavue/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
