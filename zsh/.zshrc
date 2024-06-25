@@ -214,11 +214,19 @@ function print_prompt {
     unset zsh_prompt_file
 }
 
-print_prompt
-
 # bun completions
 [ -s "/Users/ocavue/.bun/_bun" ] && source "/Users/ocavue/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pyenv 
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# if pyenv is installed, then init pyenv
+if command -v pyenv > /dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+print_prompt
