@@ -182,10 +182,6 @@ alias cnpm="npm --registry=https://registry.npmmirror.com \
 
 alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
 
-# Env for turborepo
-# https://turbo.build/repo/docs/reference/command-line-reference#global-arguments
-FORCE_COLOR=1
-
 function setproxy {
     export HTTPS_PROXY=http://127.0.0.1:1081/
     export HTTP_PROXY=http://127.0.0.1:1081/
