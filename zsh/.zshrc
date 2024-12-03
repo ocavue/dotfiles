@@ -134,7 +134,7 @@ export PNPM_HOME="$HOME/Library/pnpm"
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
 for dir in \
   "/opt/homebrew/bin" \
-  "/opt/homebrew/opt/node@16/bin" \
+  "/opt/homebrew/opt/node@20/bin" \
   "/opt/homebrew/opt/node@18/bin" \
   "/opt/homebrew/opt/openjdk/bin" \
   "/opt/homebrew/opt/python@3.10/bin" \
