@@ -229,4 +229,14 @@ if command -v pyenv > /dev/null 2>&1; then
     eval "$(pyenv init -)"
 fi
 
+# uv
+. "$HOME/.local/bin/env"
+
+# corepack
+export COREPACK_DEFAULT_TO_LATEST=0
+export COREPACK_ENABLE_AUTO_PIN=0
+export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+export COREPACK_ENABLE_STRICT=0
+
+
 print_prompt
