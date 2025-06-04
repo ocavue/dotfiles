@@ -13,7 +13,10 @@ DOTFILES_PATH=$PWD
 if [ ! -d "$HOME/.oh-my-zsh" ]
 then
     curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh > /tmp/ohmyzsh_install.sh
-    RUNZSH=no sh /tmp/ohmyzsh_install.sh
+    # RUNZSH - 'no' means the installer will not run zsh after the install (default: yes)
+    # https://github.com/ohmyzsh/ohmyzsh/blob/95ef2516697aa764d1d4bb93ad3490584cc118ec/tools/install.sh#L29
+    export RUNZSH=no
+    sh /tmp/ohmyzsh_install.sh
 fi
 
 function git_clone {
