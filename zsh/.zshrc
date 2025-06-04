@@ -75,7 +75,7 @@ DISABLE_UPDATE_PROMPT="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-z zsh-autosuggestions)
+plugins=(git zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,12 +107,6 @@ source $ZSH/oh-my-zsh.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Fix the issue that "z" go the the wrong subdirectly https://github.com/agkozak/zsh-z#zshz_uncommon
-export ZSHZ_UNCOMMON=1
-# Displays the new path name when changing directories
-export ZSHZ_ECHO=1
-export ZSHZ_TRAILING_SLASH=1
 
 # # Setup iterm2 Shell Integration
 # # document: https://iterm2.com/documentation-shell-integration.html
@@ -166,6 +160,12 @@ if [ -e "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" ]
 then
     export PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
     export PLAYWRIGHT_CHROME_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+fi
+
+# zoxide
+if [ -x "$(command -v zoxide)" ]; then
+    export _ZO_ECHO=1
+    eval "$(zoxide init zsh)"
 fi
 
 # Fix the issue of duplicated command

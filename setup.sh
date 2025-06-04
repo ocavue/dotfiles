@@ -25,8 +25,10 @@ function git_clone {
     fi
 }
 
-# install z
-git_clone https://github.com/agkozak/zsh-z ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-z
+# install zoxide and fzf
+if [ -x "$(command -v brew)" ]; then
+    brew install zoxide fzf
+fi
 
 # install powerlevel10k
 git_clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
