@@ -230,7 +230,9 @@ if command -v pyenv > /dev/null 2>&1; then
 fi
 
 # uv
-. "$HOME/.local/bin/env"
+if [[ -f "$HOME/.local/bin/env" ]]; then
+    source "$HOME/.local/bin/env"
+fi
 
 # corepack
 export COREPACK_DEFAULT_TO_LATEST=0
