@@ -124,6 +124,9 @@ export GEM_HOME=$HOME/.gem
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 
+# bun
+export BUN_INSTALL="$HOME/.bun"
+
 # Set PATH
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
 for dir in \
@@ -138,7 +141,8 @@ for dir in \
   "$HOME/Library/Python/3.10/bin" \
   "$HOME/code/github/dotfiles/bin" \
   "$HOME/code/github/prosemirror/bin" \
-  "$PNPM_HOME"
+  "$PNPM_HOME" \
+  "$BUN_INSTALL/bin"
 do
   [[ -d "$dir" ]] && export PATH="$dir:$PATH"
 done
@@ -174,14 +178,6 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
-# alias for cnpm
-alias cnpm="npm --registry=https://registry.npmmirror.com \
-  --cache=$HOME/.npm/.cache/cnpm \
-  --disturl=https://npmmirror.com/mirrors/node \
-  --userconfig=$HOME/.cnpmrc"
-
-alias cpnpm="pnpm --registry=https://registry.npmmirror.com"
-
 function setproxy {
     export HTTPS_PROXY=http://127.0.0.1:1081/
     export HTTP_PROXY=http://127.0.0.1:1081/
@@ -214,12 +210,6 @@ function print_prompt {
     unset zsh_prompt_file
 }
 
-# bun completions
-[ -s "/Users/ocavue/.bun/_bun" ] && source "/Users/ocavue/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
 
 # pyenv 
 export PYENV_ROOT="$HOME/.pyenv"
@@ -239,6 +229,5 @@ export COREPACK_DEFAULT_TO_LATEST=0
 export COREPACK_ENABLE_AUTO_PIN=0
 export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 export COREPACK_ENABLE_STRICT=0
-
 
 print_prompt
