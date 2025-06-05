@@ -56,5 +56,11 @@ fi
 ln -sf $DOTFILES_PATH/zsh/.zshrc $HOME/.zshrc
 ln -sf $DOTFILES_PATH/zsh/.p10k.zsh $HOME/.p10k.zsh
 
-echo "Finished setup.sh $(whoami) $(date)" > $HOME/.dotfiles.setup.log
+# set default shell to zsh on GitHub Codespaces
+if [ -n "$CODESPACES" ]; then
+    echo "Setting default shell to zsh on GitHub Codespaces" >> $HOME/.dotfiles.setup.log
+    sudo chsh "$(id -un)" --shell "/usr/bin/zsh"
+fi
+
+echo "Finished setup.sh $(whoami) $(date)" >> $HOME/.dotfiles.setup.log
 echo "Finished dotfiles/setup.sh"
