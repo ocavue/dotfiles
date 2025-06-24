@@ -172,6 +172,11 @@ if [ -x "$(command -v zoxide)" ]; then
     eval "$(zoxide init zsh)"
 fi
 
+# jj
+if [ -x "$(command -v jj)" ]; then
+    source <(COMPLETE=zsh jj)
+fi
+
 # Fix the issue of duplicated command
 # https://github.com/sindresorhus/pure/issues/300#issuecomment-328744993
 export LANG=en_US.UTF-8
