@@ -175,6 +175,7 @@ fi
 # jj
 if [ -x "$(command -v jj)" ]; then
     source <(COMPLETE=zsh jj)
+    jj config set --user ui.paginate never
 fi
 
 # Fix the issue of duplicated command
