@@ -140,6 +140,7 @@ for dir in \
   "$HOME/Library/Python/3.10/bin" \
   "$HOME/code/github/dotfiles/bin" \
   "$HOME/code/github/prosemirror/bin" \
+  "$HOME/.claude/local/bin" \
   "$PNPM_HOME" \
   "$BUN_INSTALL/bin"
 do
@@ -209,7 +210,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # if pyenv is installed, then init pyenv
 if command -v pyenv > /dev/null 2>&1; then
-    eval "$(pyenv init -)"
+    eval "$(pyenv init - zsh)"
 fi
 
 # uv
@@ -222,16 +223,3 @@ export COREPACK_DEFAULT_TO_LATEST=0
 export COREPACK_ENABLE_AUTO_PIN=0
 export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 export COREPACK_ENABLE_STRICT=0
-
-function print_prompt {
-    # more color: https://stackoverflow.com/a/28938235
-    mkdir -p /tmp/zsh_prompt/
-    zsh_prompt_file="/tmp/zsh_prompt/$(date +"%Y-%m-%d_%H")"
-    if [[ ! -f "$zsh_prompt_file" ]]; then
-        echo '\033[1;33m''(>_< ) 今天也是元气满满的一天！''\033[0m'
-        touch $zsh_prompt_file
-    fi
-    unset zsh_prompt_file
-}
-
-print_prompt
