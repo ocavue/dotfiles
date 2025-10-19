@@ -178,6 +178,11 @@ if [ -x "$(command -v jj)" ]; then
     jj config set --user ui.paginate never
 fi
 
+# mise
+if [ -x "$(command -v mise)" ]; then
+    alias m=mise
+fi
+
 # Fix the issue of duplicated command
 # https://github.com/sindresorhus/pure/issues/300#issuecomment-328744993
 export LANG=en_US.UTF-8
