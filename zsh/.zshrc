@@ -140,7 +140,7 @@ for dir in \
   "$HOME/Library/Python/3.10/bin" \
   "$HOME/code/github/dotfiles/bin" \
   "$HOME/code/github/prosemirror/bin" \
-  "$HOME/.claude/local/bin" \
+  "$HOME/.claude/local" \
   "$PNPM_HOME" \
   "$BUN_INSTALL/bin"
 do
