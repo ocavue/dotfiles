@@ -131,7 +131,7 @@ export BUN_INSTALL="$HOME/.bun"
 # /opt/homebrew/bin is for homebrew on Apple Silicon Mac
 for dir in \
   "/opt/homebrew/bin" \
-  "/opt/homebrew/opt/node@20/bin" \
+  "/opt/homebrew/opt/node@24/bin" \
   "/opt/homebrew/opt/openjdk/bin" \
   "/opt/homebrew/opt/python@3.10/bin" \
   "/opt/homebrew/opt/ruby/bin" \
