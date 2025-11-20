@@ -210,10 +210,15 @@ function setproxy {
 }
 
 function rmcache {
-  rm -rf ./.next
-  rm -rf ./node_modules/.vitest
-  rm -rf ./node_modules/.vite
-  rm -rf ./node_modules/.cache
+  find . \( \
+    -name ".eslintcache" -o \
+    -name ".next" -o \
+    -name ".turbo" -o \
+    -path "*/node_modules/.vite" -o \
+    -path "*/node_modules/.vitest" -o \
+    -path "*/node_modules/.cache" -o \
+    -path "*/node_modules/.astro" \
+  \) -prune -print -exec rm -rf {} +
 }
 
 # Stop Powerlevel10k from printing warning
