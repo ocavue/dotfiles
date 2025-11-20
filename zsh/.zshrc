@@ -189,6 +189,15 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
+# Create a temporary directory and cd into it
+function mktmp {
+  cd /tmp
+  name=$(date +%H_%M_%S)
+  mkdir $name
+  cd $name
+  pwd
+}
+
 function setproxy {
     export HTTPS_PROXY=http://127.0.0.1:1081/
     export HTTP_PROXY=http://127.0.0.1:1081/
