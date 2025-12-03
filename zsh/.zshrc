@@ -214,6 +214,7 @@ function rmcache {
     -name ".eslintcache" -o \
     -name ".next" -o \
     -name ".turbo" -o \
+    -name ".mypy_cache" -o \
     -path "*/node_modules/.vite" -o \
     -path "*/node_modules/.cache" -o \
     -path "*/node_modules/.astro" \
