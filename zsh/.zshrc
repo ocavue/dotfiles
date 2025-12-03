@@ -213,6 +213,7 @@ function rmcache {
   find . \( \
     -name ".eslintcache" -o \
     -name ".next" -o \
+    -name ".swc" -o \
     -name ".turbo" -o \
     -name ".mypy_cache" -o \
     -path "*/node_modules/.vite" -o \
