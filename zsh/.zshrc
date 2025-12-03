@@ -215,8 +215,6 @@ function rmcache {
     -name ".next" -o \
     -name ".turbo" -o \
     -path "*/node_modules/.vite" -o \
-    -path "*/node_modules/.vite-temp" -o \
-    -path "*/node_modules/.vitest" -o \
     -path "*/node_modules/.cache" -o \
     -path "*/node_modules/.astro" \
   \) -prune -print -exec rm -rf {} +
