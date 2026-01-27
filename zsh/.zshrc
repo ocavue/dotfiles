@@ -75,7 +75,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions smart-suggestion)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -192,8 +192,8 @@ export LC_CTYPE=en_US.UTF-8
 # Create a temporary directory and cd into it
 function mktmp {
   cd /tmp
-  name=$(date +%H_%M_%S)
-  mkdir $name
+  name=$(date +%Y-%m-%d_%H-%M-%S)
+  mkdir -p $name
   cd $name
   pwd
 }
@@ -216,6 +216,7 @@ function rmcache {
     -name ".swc" -o \
     -name ".turbo" -o \
     -name ".mypy_cache" -o \
+    -name ".svelte2tsx-language-server-files" -o \
     -path "*/node_modules/.vite" -o \
     -path "*/node_modules/.cache" -o \
     -path "*/node_modules/.astro" \
