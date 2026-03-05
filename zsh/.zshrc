@@ -198,6 +198,11 @@ function mktmp {
   pwd
 }
 
+# A function to list all dependencies in a pnpm workspace
+function pnpm-list-all {
+  pnpm list -r --depth=Infinity --parseable | sed 's/.*node_modules\///' | sort -u
+}
+
 function setproxy {
     export HTTPS_PROXY=http://127.0.0.1:1081/
     export HTTP_PROXY=http://127.0.0.1:1081/
