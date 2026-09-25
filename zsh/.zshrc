@@ -81,14 +81,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# Custom color for different hosts
-case $HOST in
-  ocavue-studio*)
-    typeset -g POWERLEVEL9K_DIR_FOREGROUND=97
-    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=135
-    ;;
-esac
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -115,6 +107,14 @@ esac
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Custom color for different hosts
+case $HOST in
+  ocavue-studio*)
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND=97
+    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=135
+    ;;
+esac
 
 # # Setup iterm2 Shell Integration
 # # document: https://iterm2.com/documentation-shell-integration.html
