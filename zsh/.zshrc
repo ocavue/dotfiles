@@ -240,7 +240,7 @@ function y() {
 # Stop Powerlevel10k from printing warning
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
-# pyenv 
+# pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 # if pyenv is installed, then init pyenv
@@ -258,3 +258,14 @@ export COREPACK_DEFAULT_TO_LATEST=0
 export COREPACK_ENABLE_AUTO_PIN=0
 export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 export COREPACK_ENABLE_STRICT=0
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
+
+# pnpm
+export PNPM_HOME="/Users/ocavue/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
