@@ -81,6 +81,14 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# Custom color for different hosts
+case $HOST in
+  ocavue-studio*)
+    typeset -g POWERLEVEL9K_DIR_FOREGROUND=97
+    typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=135
+    ;;
+esac
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
