@@ -259,9 +259,6 @@ export COREPACK_ENABLE_AUTO_PIN=0
 export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 export COREPACK_ENABLE_STRICT=0
 
-# Vite+ bin (https://viteplus.dev)
-. "$HOME/.vite-plus/env"
-
 # pnpm
 export PNPM_HOME="/Users/ocavue/Library/pnpm"
 case ":$PATH:" in
