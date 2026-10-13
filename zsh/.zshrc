@@ -231,6 +231,7 @@ function rmcache {
     -name ".mypy_cache" -o \
     -name ".svelte2tsx-language-server-files" -o \
     -path "*/node_modules/.vite" -o \
+    -path "*/node_modules/.vitest-cache" -o \
     -path "*/node_modules/.cache" -o \
     -path "*/node_modules/.astro" \
   \) -prune -print -exec rm -rf {} +
