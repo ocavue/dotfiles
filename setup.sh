@@ -40,7 +40,7 @@ git_clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-m
 git_clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # install ni
-if [ -x "$(command -v npm)" ]; then 
+if [ -x "$(command -v npm)" ]; then
     # npm exists
     if ! [ -x "$(command -v ni)" ]; then
         # ni not exists

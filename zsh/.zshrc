@@ -237,6 +237,31 @@ function rmcache {
   \) -prune -print -exec rm -rf {} +
 }
 
+function clean_disk {
+    echo "==============================="
+    echo "Available before:"
+    df -h /
+
+    set -ex
+
+    # https://github.com/Dr-Emann/applesauce
+    applesauce compress --verify ~/code/
+    applesauce compress --verify ~/.rustup/toolchains
+
+    # https://pnpm.io/installation
+    pnpm store prune
+
+    # https://github.com/dnlmlr/cargo-clean-all
+    cargo clean-all --keep-days 14 --yes ~/
+
+    sex +ex
+
+    echo "==============================="
+    echo "Available after:"
+    df -h /
+    echo "==============================="
+}
+
 # https://yazi-rs.github.io/docs/quick-start
 function y() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
