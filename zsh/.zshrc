@@ -238,27 +238,53 @@ function rmcache {
 }
 
 function clean_disk {
+    local before=$(df -Pk / | awk 'NR==2 {print $4}')
     echo "==============================="
     echo "Available before:"
     df -h /
 
-    set -ex
+    (
+        set -x
 
-    # https://github.com/Dr-Emann/applesauce
-    applesauce compress --verify ~/code/
-    applesauce compress --verify ~/.rustup/toolchains
+        # Homebrew: remove old versions of installed formulae and all cached downloads
+        brew cleanup --prune=all
+        # Homebrew: uninstall formulae that were only installed as dependencies and are no longer needed
+        brew autoremove
+        # uv: remove unused entries from the uv cache
+        uv cache prune
+        # pnpm: remove packages in the store that no project references
+        pnpm store prune
+        # pip: remove all wheels and HTTP responses in the pip cache
+        pip3 cache purge
+        # Go: remove the build cache (rebuilt on the next build)
+        go clean -cache
+        # Corepack: remove downloaded package manager versions (downloaded again on demand)
+        rm -rf ~/.cache/node/corepack
 
-    # https://pnpm.io/installation
-    pnpm store prune
+        # Xcode: build products, indexes and module caches (rebuilt on the next build)
+        rm -rf ~/Library/Developer/Xcode/DerivedData
+        # Xcode: archives from Product > Archive, including their dSYMs
+        rm -rf ~/Library/Developer/Xcode/Archives/
 
-    # https://github.com/dnlmlr/cargo-clean-all
-    cargo clean-all --keep-days 14 --yes ~/
+        # Simulator: delete devices whose runtime is no longer installed
+        xcrun simctl delete unavailable
+        # Simulator: delete runtime disk images not used in the last 90 days
+        xcrun simctl runtime delete --notUsedSinceDays 90
 
-    sex +ex
+        # Cargo: remove target directories of projects not touched in the last 14 days
+        # https://github.com/dnlmlr/cargo-clean-all
+        cargo clean-all --keep-days 14 --yes ~/
 
+        # applesauce: transparently compress files with APFS compression
+        # https://github.com/Dr-Emann/applesauce
+        applesauce compress --verify ~/code/ ~/.rustup/toolchains
+    )
+
+    local after=$(df -Pk / | awk 'NR==2 {print $4}')
     echo "==============================="
     echo "Available after:"
     df -h /
+    echo "Freed: $(( (after - before) / 1024 )) MiB"
     echo "==============================="
 }
 
