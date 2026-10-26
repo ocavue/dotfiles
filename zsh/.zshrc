@@ -258,8 +258,8 @@ function clean_disk {
         pip3 cache purge
         # Go: remove the build cache (rebuilt on the next build)
         go clean -cache
-        # Corepack: remove downloaded package manager versions (downloaded again on demand)
-        rm -rf ~/.cache/node/corepack
+        # Corepack: remove package manager versions downloaded more than 90 days ago
+        find ~/.cache/node/corepack/v1 -mindepth 2 -maxdepth 2 -type d -mtime +90 -exec rm -rf {} +
 
         # Xcode: build products, indexes and module caches (rebuilt on the next build)
         rm -rf ~/Library/Developer/Xcode/DerivedData
