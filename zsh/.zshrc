@@ -277,7 +277,7 @@ function clean_disk {
 
         # applesauce: transparently compress files with APFS compression
         # https://github.com/Dr-Emann/applesauce
-        applesauce compress --verify ~/code/ ~/.rustup/toolchains
+        applesauce compress --verify ~/code/ ~/.rustup/toolchains /opt/homebrew/Cellar ~/.cargo/registry ~/.npm ~/.vscode/extensions ~/.local/share/mise ~/.gem
     )
 
     local after=$(df -Pk / | awk 'NR==2 {print $4}')
